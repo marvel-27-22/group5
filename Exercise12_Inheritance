@@ -1,0 +1,137 @@
+
+/**
+ * Write a description of class Vehicle here.
+ *
+ * @author (GROUP 5)
+ * @version (05/02/2026)
+ */
+class Vehicle
+{
+   protected String brand;
+   protected String model;
+   protected int year;
+   protected double price;
+   
+   public Vehicle(String brand, String model, int year, double price){
+       this.brand=brand;
+       this.model=model;
+       this.year=year;
+       this.price=price;
+    }
+    public void displayInfo(){
+        System.out.println("ALL VEHICLE INFORMATION");
+    }
+    public void startEngine(){
+        System.out.println(brand +model+"engine started");
+    }
+    public void stopEngine(){
+        System.out.println(brand+model+"engine stopped");
+    }
+}
+
+class car extends Vehicle{
+        private int numDoors;
+        private String fuelType;
+        
+        public car(String brand, String model,int year,double price,int numDoor,String fuelType){
+            super(brand,model,year,price);
+            this.numDoors = numDoors;
+            this.fuelType = fuelType;
+        }
+        public void disddplayInfo(){
+            super.displayInfo();
+            System.out.println("Number of doors"+ numDoors);
+            System.out.println("fuel type"+ fuelType);
+        }
+        public void honk(){
+            System.out.println(brand + "" + model + "says Beep beep");
+        }
+        public void openTrunk(){
+            System.out.println("opening trunk" + brand+ "" + model);
+        }
+}
+    
+        
+class Motorcycle extends Vehicle{
+            private int enginecc;
+            private boolean hashelmetstorage;
+            
+            public Motorcycle(String brand,String model,int year,double price,int enginecc,boolean heshelmetstorage){
+                super(brand,model,year,price);
+                this.enginecc=enginecc;
+                this.hashelmetstorage=hashelmetstorage;
+            }
+            public void displayInfo(){
+                super.displayInfo();
+                System.out.println("the enginecc is"+ enginecc);
+                System.out.println("the helmetstorage is"+hashelmetstorage);
+            }
+            public void wheelie(){
+                System.out.println(brand+model+"is doing a whelie!");
+            }
+            public void kickstart(){
+                System.out.println("kick starting"+brand+model);
+            }
+}
+            
+            
+class Electriccar extends car{
+                private double batterycapacity;
+                private int range;
+                
+                public Electriccar(String brand,String model,int year,double price,int numDoors,String fuelType,double batterycapacity,int range){
+                    super(brand,model,year,price,numDoors,fuelType);
+                    this.batterycapacity=batterycapacity;
+                    this.range=range;
+                }
+                public void startEngine(){
+                    super.startEngine();
+                    System.out.println(brand+model+"electric motor activated silently");
+                }
+                public void charge(){
+                    System.out.println("charging"+brand+model+"....battery;"+batterycapacity+"kwh");
+                }
+                public void displayBatterystatus(){
+                    System.out.println("current battery info");
+                }
+} 
+public class Inheritance_Vehicle{               
+public static void main(String[] args){
+                    System.out.println("========VEHICLE HIERARCHY TEST===\n");
+                    car car=new car("Toyota","Corolla",2023,45000000,4,"petrol");
+                    Motorcycle motorcycle=new Motorcycle("Honda","CBR500R",2022,15000000,500,false);
+                    Electriccar electriccar=new Electriccar("Test","model3",2024,85000000,4,"electric",75.0,450);
+                    
+                    System.out.println("---=====TESTING CAR---====");
+                    car. displayInfo();
+                    car.startEngine();
+                    car.honk();
+                    car.openTrunk();
+                    car.stopEngine();
+                    
+                    System.out.println("\n---====TESTING MOTORCYCLE-===");
+                    motorcycle.displayInfo();
+                    motorcycle.startEngine();
+                    motorcycle.wheelie();
+                    motorcycle.kickstart();
+                    motorcycle.stopEngine();
+                    
+                    System.out.println("\n---===TESTING ELECTRIC CAR--====");
+                    electriccar.displayInfo();
+                    electriccar.startEngine();
+                    electriccar.charge();
+                    electriccar.displayBatterystatus();
+                    electriccar.honk();
+                    electriccar.stopEngine();
+                    
+                    
+                    System.out.print("\n--===polymorphism demo--===");
+                    Vehicle[] Vehicle={car,motorcycle,electriccar};
+                    for (Vehicle v: Vehicle){
+                        v.displayInfo();
+                        v.startEngine();
+                        System.out.println();
+                    }
+                }
+                
+                }
