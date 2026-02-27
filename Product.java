@@ -15,7 +15,7 @@ public class Product {
         this.unitPrice = 1.0;
         this.quantityInStock = 0;
         this.reorderLevel = 10; 
-
+    }
     public Product(String code, String name, String cat, double price, int stock) {
         this.productCode = code;
         this.productName = name;

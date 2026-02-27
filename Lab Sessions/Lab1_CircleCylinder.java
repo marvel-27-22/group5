@@ -1,14 +1,14 @@
-class Circle {
+class CircleBasic {
     private double radius = 1.0;
     private String color = "red";
 
-    public Circle() {}
+    public CircleBasic() {}
 
-    public Circle(double radius) {
+    public CircleBasic(double radius) {
         this.radius = radius;
     }
 
-    public Circle(double radius, String color) {
+    public CircleBasic(double radius, String color) {
         this.radius = radius;
         this.color = color;
     }
@@ -39,7 +39,7 @@ class Circle {
     }
 }
 
-class Cylinder extends Circle {
+class Cylinder extends CircleBasic {
     private double height = 1.0;
 
     public Cylinder() {
@@ -85,7 +85,7 @@ public class Lab1_CircleCylinder {
         System.out.println("========================================\n");
 
         System.out.println("--- Section 1: Basic Object Creation ---");
-        Circle c1 = new Circle(5.0, "blue");
+        CircleBasic c1 = new CircleBasic(5.0, "blue");
         System.out.println("Circle: " + c1);
         System.out.println("Area: " + c1.getArea());
 
@@ -95,27 +95,27 @@ public class Lab1_CircleCylinder {
         System.out.println("Volume: " + cy1.getVolume());
 
         System.out.println("\n--- Section 2: Upcasting ---");
-        Circle c2 = new Cylinder(3.0, 7.0, "yellow");
+        CircleBasic c2 = new Cylinder(3.0, 7.0, "yellow");
         System.out.println("c2 is a: " + c2.getClass().getSimpleName());
         System.out.println("c2.toString(): " + c2);
         System.out.println("c2.getArea(): " + c2.getArea());
         System.out.println("c2.getRadius(): " + c2.getRadius());
 
         System.out.println("\n--- Section 3: Downcasting ---");
-        Circle c3 = new Cylinder(4.0, 8.0, "purple");
+        CircleBasic c3 = new Cylinder(4.0, 8.0, "purple");
         Cylinder cy2 = (Cylinder) c3;
         System.out.println("After downcast: " + cy2);
         System.out.println("Now we can call getVolume(): " + cy2.getVolume());
 
         System.out.println("\n--- Section 4: instanceof Operator ---");
-        Circle[] shapes = {
-            new Circle(2.0, "red"),
+        CircleBasic[] shapes = {
+            new CircleBasic(2.0, "red"),
             new Cylinder(3.0, 5.0, "blue"),
-            new Circle(4.0, "green"),
+            new CircleBasic(4.0, "green"),
             new Cylinder(1.0, 10.0, "orange")
         };
 
-        for (Circle shape : shapes) {
+        for (CircleBasic shape : shapes) {
             System.out.println(shape);
             if (shape instanceof Cylinder) {
                 Cylinder temp = (Cylinder) shape;

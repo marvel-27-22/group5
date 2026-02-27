@@ -4,6 +4,7 @@ public class MobilePhone {
     private String model;
     private double price;
     private int batteryLevel; 
+    private boolean isOn;
 
     public MobilePhone() {
         this("Unknown", "Unknown", 0.0);
@@ -54,28 +55,28 @@ public class MobilePhone {
     public void turnOn() {
         if (batteryLevel > 0) {
             isOn = true;
-            System.out.println("📱 " + brand + " is booting up...");
+            System.out.println("" + brand + " is booting up...");
         } else {
-            System.out.println("🪫 Cannot turn on: Battery is empty.");
+            System.out.println("Cannot turn on: Battery is empty.");
         }
     }
 
     public void turnOff() {
         isOn = false;
-        System.out.println("💤 Phone is shutting down...");
+        System.out.println("Phone is shutting down...");
     }
 
     public void makeCall(String contact) {
         if (!isOn) {
-            System.out.println("❌ Turn the phone on first!");
+            System.out.println("Turn the phone on first!");
             return;
         }
 
         if (batteryLevel >= 5) {
-            System.out.println("📞 Calling " + contact + "...");
+            System.out.println("Calling " + contact + "...");
             batteryLevel -= 5;
         } else {
-            System.out.println("🪫 Battery too low to make a call (Minimum 5%).");
+            System.out.println("Battery too low to make a call (Minimum 5%).");
         }
     }
 
