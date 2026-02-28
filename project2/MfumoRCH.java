@@ -1,19 +1,50 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
 public class MfumoRCH {
     public static void main(String[] args) {
-        // 1. Kutengeneza Object ya Mtoto kwa kutumia Constructor
-        Mtoto mtoto = new Mtoto("964/011", "SAIDI MAKAME HAJI", 2.7);
+        Scanner sc = new Scanner(System.in);
+        ArrayList<Mtoto> rekodiZaKliniki = new ArrayList<>();
+        
+        System.out.println("KARIBU KWENYE MFUMO WA KLINIKI (RCH 1)");
 
-        // 2. Kutengeneza Objects za Chanjo (Inheritance)
-        Chanjo c1 = new Chanjo("BCG", "26/7/2010");
-        Chanjo c2 = new Chanjo("Polio (Mwezi 1)", "26/8/2010");
-        Chanjo c3 = new Chanjo("Polio (Mwezi 2)", "27/9/2010");
+        while (true) {
+            System.out.println("1. Sajili Mtoto Mpya");
+            System.out.println("2. Ongeza Chanjo kwa Mtoto");
+            System.out.println("3. Onyesha Kadi ya Mtoto");
+            System.out.println("4. Toka");
+            System.out.print("Chagua: ");
+            int chagua = sc.nextInt();
+            sc.nextLine(); // Clear buffer
 
-        // 3. Kuongeza chanjo kwenye kadi ya mtoto
-        mtoto.ongezaChanjo(c1);
-        mtoto.ongezaChanjo(c2);
-        mtoto.ongezaChanjo(c3);
+            if (chagua == 1) {
+                System.out.print("Na. ya Mtoto: "); String namba = sc.nextLine();
+                System.out.print("Jina la Mtoto: "); String jina = sc.nextLine();
+                System.out.print("Uzito (kg): "); double uzito = sc.nextDouble();
+                
+                rekodiZaKliniki.add(new Mtoto(namba, jina, uzito));
+                System.out.println("Usajili Umekamilika!");
 
-        // 4. Kuonyesha ripoti ya kadi
-        mtoto.onyeshaKadiKamili();
+            } else if (chagua == 2) {
+                if (rekodiZaKliniki.isEmpty()) {
+                    System.out.println("Sajili mtoto kwanza!");
+                    continue;
+                }
+                System.out.print("Ingiza Jina la Chanjo (mf. BCG): "); String aina = sc.nextLine();
+                System.out.print("Tarehe ya Leo: "); String leo = sc.nextLine();
+                
+                rekodiZaKliniki.get(rekodiZaKliniki.size() - 1).ongezaChanjo(new Chanjo(aina, leo));
+                System.out.println("Chanjo Imeongezwa!");
+
+            } else if (chagua == 3) {
+                for (Mtoto m : rekodiZaKliniki) {
+                    m.onyeshaKadiKamili();
+                }
+            } else if (chagua == 4) {
+                System.out.println("Asante kwa kutumia Mfumo wa RCH!");
+                break;
+            }
+        }
+        sc.close();
     }
 }
