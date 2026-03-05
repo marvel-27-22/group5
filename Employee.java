@@ -21,7 +21,7 @@ public class Employee {
         this.yearsOfService = 0; 
         
                 if (salary < 500000) {
-            System.out.println("(!) Note: " + name + "'s initial salary was bumped to 500k minimum.");
+            System.out.println("Note: " + name + "'s initial salary was bumped to 5000000 minimum.");
             this.basicSalary = 500000;
         } else {
             this.basicSalary = salary;
@@ -79,7 +79,7 @@ public class Employee {
     public void promote(String newDept, double raise) {
         this.department = newDept;
         this.basicSalary += raise;
-        System.out.println(">>> UPDATE: " + fullName + " promoted to " + newDept);
+        System.out.println(" UPDATE: " + fullName + " promoted to " + newDept);
     }
 
     public void printSummary() {
@@ -95,7 +95,7 @@ public class Employee {
     }
 
     public static void main(String[] args) {   
-        Employee ali = new Employee("EMP001", "Ali Hassan", "IT", 1500000);
+        Employee ali = new Employee("EMP001","Ali Hassan", "IT", 1500000);
         Employee fatma = new Employee("EMP002", "Fatma Said", "HR", 1200000);
         ali.setYearsOfService(5);
         fatma.setYearsOfService(2);

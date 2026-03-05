@@ -123,7 +123,7 @@ public class Product {
         p1.sellProduct(20);
 
         if (p2.needsReorder()) {
-            System.out.println("(!) Restocking chairs due to low inventory...");
+            System.out.println("Restocking chairs due to low inventory...");
             p2.addStock(50);
         }
 
