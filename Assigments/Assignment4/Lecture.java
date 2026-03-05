@@ -8,6 +8,6 @@ public class Lecture extends ScheduleItem {
         this.isCompulsory = comp;
     }
 
-    @Override public int getDuration() { return 120; } // Simplified for logic
+    @Override public int getDuration() { return 120; } 
     @Override public String getItemType() { return "Lecture"; }
 }

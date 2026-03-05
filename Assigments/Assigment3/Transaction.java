@@ -2,7 +2,7 @@ public class Transaction {
     private String transactionId;
     private String date;
     private String time;
-    private String type; // SEND, RECEIVE, PAY_BILL, BUY_AIRTIME, WITHDRAW, DEPOSIT
+    private String type; 
     private double amount;
     private String recipientOrSender;
     private double balance;
@@ -32,7 +32,7 @@ public class Transaction {
         return isIncoming() ? (amount - transactionCost) : (amount + transactionCost);
     }
 
-    // Getters
+    
     public String getType() { return type; }
     public double getAmount() { return amount; }
     public double getTransactionCost() { return transactionCost; }
